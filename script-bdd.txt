@@ -1,0 +1,11 @@
+
+CREATE TABLE utilisateur (
+  id INTEGER auto_increment PRIMARY KEY,
+  prenom varchar(100) NOT NULL,
+  nom varchar(100) NOT NULL,
+  email varchar(255)  NOT NULL unique,
+);
+
+INSERT INTO students VALUES (1, 'Ryan', 'M');
+INSERT INTO students VALUES (2, 'Joanna', 'F');
+
