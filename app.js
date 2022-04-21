@@ -7,9 +7,14 @@ app.use((req, res) => {
 console.log("test")
 
 
-app.get("SELECT * FROM EMPLOYEE") =>{
+app.get(("/"), (req, res) =>{
     res.send('Tout les employés sont sélectionnés')
-  }
+  })
+
+  app.get(("/employee"), (req, res) =>{
+    SELECT * FROM EMPLOYEE,
+    res.send('Tout les employés sont sélectionnés')
+  })
   
   app.put("UPDATE EMPLOYEE SET dept = Accounting WHERE empId = 0001") =>{
     res.send('La liste des employés à été mise à jour')
@@ -32,3 +37,5 @@ app.get("SELECT * FROM EMPLOYEE") =>{
   }
   
   module.exports = app;
+
+  SELECT * FROM EMPLOYEE,
