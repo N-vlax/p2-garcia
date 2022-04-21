@@ -24,7 +24,6 @@ connection.connect()
 
 
 
-
 app.get(("/"), (req, res) =>{
   res.send('Tout les employés sont sélectionnés')
 })
@@ -34,8 +33,8 @@ app.get(("/employee"), (req, res) =>{
     if (err) throw err
   
     console.log('The solution is: ', rows[0].solution)
+    
   })
- 
   res.send(rows[0].solution);
 })
 
@@ -46,7 +45,6 @@ app.put(("/employee-update/:maj"), (req, res =>{
   
     console.log('The solution is: ', rows[0].solution)
   })
-  "UPDATE EMPLOYEE SET dept = Accounting WHERE empId = 0001"
   res.send('La liste des employés à été mise à jour');
 })
 
@@ -67,13 +65,6 @@ app.post(("/employee-insert/:id/:Name/:Dept"), (req, res =>{
   })
  
 })
-
-
-
-
-
-
-
 
 
 
