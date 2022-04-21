@@ -1,22 +1,5 @@
 
-CREATE TABLE utilisateur (
-  id INTEGER auto_increment PRIMARY KEY,
-  prenom varchar(100) NOT NULL,
-  nom varchar(100) NOT NULL,
-  email varchar(255)  NOT NULL unique
-  
-);
-
-INSERT INTO utilisateur VALUES (1, 'Ryan', 'Choucroute', 'yolo@gmail.com');
-INSERT INTO utilisateur VALUES (2, 'Joanna', 'Patate', 'samuel@choucroute.fr');
-
-SELECT * FROM utilisateur
-
-
-
-///////////////////////////////////////////////////////////////////////////////
-
-NEW VERSIONS
+NEW VERSION
 
 -- create
 CREATE TABLE EMPLOYEE (
@@ -32,30 +15,6 @@ INSERT INTO EMPLOYEE VALUES (0003, 'Ava', 'Sales');
 
 
 
--- fetch 
-SELECT * FROM EMPLOYEE WHERE dept = 'Sales';
-UPDATE EMPLOYEE SET dept = "Accounting" WHERE empId = 0001;
-DELETE FROM EMPLOYEE WHERE empId = 0003;
-INSERT INTO EMPLOYEE VALUES (0004, 'Michel', 'Accounting');
-
-
-
-
-
-///////////////////////////////////////////////////////////////////////////////
-
-POUR POUVOIR LANCER LE LES REQUETES DE LA TABLE SUR UN EDITEUR SUR UN SITE 
-
-SELECT * FROM EMPLOYEE;
-
-UPDATE EMPLOYEE SET dept = "Accounting" WHERE empId = 0001;
-
-SELECT * FROM EMPLOYEE;
-
-DELETE FROM EMPLOYEE WHERE empId = 0003;
-INSERT INTO EMPLOYEE VALUES (0004, 'Michel', 'Sales');
-
-SELECT * FROM EMPLOYEE;
 
 
 
