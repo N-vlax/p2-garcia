@@ -39,9 +39,9 @@ app.get(("/employee"), (req, res) =>{
   res.send(rows[0].solution);
 })
 
-app.put(("/employee-update/:id"), (req, res =>{
-  var toto =req.params.id;
-  connection.query( "UPDATE EMPLOYEE SET dept = Accounting WHERE empId = " + toto, (err, rows, fields) => {
+app.put(("/employee-update/:maj"), (req, res =>{
+  var maj =req.params.id;
+  connection.query( "UPDATE EMPLOYEE SET dept = Accounting WHERE empId = " + maj, (err, rows, fields) => {
     if (err) throw err
   
     console.log('The solution is: ', rows[0].solution)
@@ -50,9 +50,10 @@ app.put(("/employee-update/:id"), (req, res =>{
   res.send('La liste des employés à été mise à jour');
 })
 
-app.delete(("/employee-delete"), (req, res =>{
-  "DELETE FROM EMPLOYEE WHERE empId = 0003"
-  res.send('Employé avec id 0003 supprimé')
+app.delete(("/employee-delete/:id"), (req, res =>{
+  var id = req.params.id
+  "DELETE FROM EMPLOYEE WHERE empId = " + id
+  res.send('Employé' + rows + 'supprimé')
 })
 
 app.post(("/employee-insert/:id/:Name/:Dept"), (req, res =>{
@@ -65,8 +66,6 @@ app.post(("/employee-insert/:id/:Name/:Dept"), (req, res =>{
     res.send('Ajout de Michel')
   })
  
-  
-  
 })
 
 
