@@ -17,6 +17,3 @@ INSERT INTO EMPLOYEE VALUES (0003, 'Ava', 'Sales');
 
 
 
-
-
-
