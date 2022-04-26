@@ -26,7 +26,7 @@ connection.connect()
 
 app.get(("/"), (req, res) =>{
   res.send('Tout les employés sont sélectionnés')
-})
+});
 
 app.get(("/employee"), (req, res) =>{
   connection.query( "SELECT * FROM EMPLOYEE", (err, rows, fields) => {
@@ -36,7 +36,7 @@ app.get(("/employee"), (req, res) =>{
     
   })
   res.send(rows[0].solution);
-})
+});
 
 app.put(("/employee-update/:maj"), (req, res =>{
   var maj =req.params.id;
@@ -46,27 +46,25 @@ app.put(("/employee-update/:maj"), (req, res =>{
     console.log('The solution is: ', rows[0].solution)
   })
   res.send('La liste des employés à été mise à jour');
-})
+}))
 
 app.delete(("/employee-delete/:id"), (req, res =>{
   var id = req.params.id
   "DELETE FROM EMPLOYEE WHERE empId = " + id
-  res.send('Employé' + rows + 'supprimé')
-})
+  res.send('Employé' + rows + 'supprimé');
+}))
 
 app.post(("/employee-insert/:id/:Name/:Dept"), (req, res =>{
   var num =req.params.id;
   var nom =req.params.Name;
   var departm =req.params.Dept;
-  connection.query( "INSERT INTO EMPLOYEE VALUES (0004, 'Michel', 'Sales')" + num + nom + departm; (err, rows, fields) => {
+  connection.query( "INSERT INTO EMPLOYEE VALUES (id, 'Name', 'Dept')" + num + nom + departm, (err, rows, fields) => {
     if (err) throw err
   
-    res.send('Ajout de Michel')
+    res.send('Ajout de' + nom + 'réussi');
   })
  
-})
-
-
+}))
 
 
 connection.end()
