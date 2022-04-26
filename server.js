@@ -43,10 +43,11 @@ app.get(("/employee"), (req, res) =>{
 
 
 
-app.put(("/employee-update/:maj"), (req, res =>{
+app.put(("/employee-update/:maj/:sect"), (req, res =>{
   var updt =req.params.maj;
+  var departement =req.params.sect;
 
-  connection.query( "UPDATE EMPLOYEE SET dept = Accounting WHERE empId = (" + updt + ")", (err, rows, fields) => {
+  connection.query( "UPDATE EMPLOYEE SET dept = (" + departement + ")  Accounting WHERE empId = (" + updt + ")", (err, rows, fields) => {
     if (err) throw err
   
     console.log('The solution is: ', rows[0].solution)
