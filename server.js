@@ -20,7 +20,13 @@ const connection = mysql.createConnection({
 
 connection.connect()
 
-
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTION');
+  next();
+})
 
 
 
@@ -47,7 +53,7 @@ app.put(("/employee-update/:maj/:sect"), (req, res =>{
   var updt =req.params.maj;
   var departement =req.params.sect;
 
-  connection.query( "UPDATE EMPLOYEE SET dept = (" + departement + ")  Accounting WHERE empId = (" + updt + ")", (err, rows, fields) => {
+  connection.query( "UPDATE EMPLOYEE SET dept = (" + departement + ") WHERE empId = (" + updt + ")", (err, rows, fields) => {
     if (err) throw err
   
     console.log('The solution is: ', rows[0].solution)
