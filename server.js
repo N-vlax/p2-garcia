@@ -46,19 +46,19 @@ app.get(("/employee"), (req, res) =>{
 app.put(("/employee-update/:maj"), (req, res =>{
   var updt =req.params.maj;
 
-  connection.query( "UPDATE EMPLOYEE SET dept = Accounting WHERE empId = ('updt') ", (err, rows, fields) => {
+  connection.query( "UPDATE EMPLOYEE SET dept = Accounting WHERE empId = (" + updt + ")", (err, rows, fields) => {
     if (err) throw err
   
     console.log('The solution is: ', rows[0].solution)
   })
-  res.send('La liste des employés à été mise à jour');
+  res.send('La liste des employés à été mise à jour')
 }))
 
 
 
 app.delete(("/employee-delete/:id"), (req, res =>{
   var delid = req.params.id
-  "DELETE FROM EMPLOYEE WHERE empId = ('delid') "
+  "DELETE FROM EMPLOYEE WHERE empId = (" + delid + ")" 
   res.send('Employé' + rows + 'supprimé');
 }))
 
@@ -69,7 +69,7 @@ app.post(("/employee-insert/:id/:Name/:Dept"), (req, res =>{
   var nom =req.params.Name;
   var departm =req.params.Dept;
 
-  connection.query( "INSERT INTO EMPLOYEE VALUES ('num', 'nom', 'departm')", (err, rows, fields) => {
+  connection.query( "INSERT INTO EMPLOYEE VALUES = (" + num + nom + departm + ")", (err, rows, fields) => {
     if (err) throw err
   
     res.send('Ajout de' + nom + 'réussi');
